@@ -4,13 +4,15 @@ import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
-import reducer from './reducers/keg-control-reducer';
 import { Provider } from 'react-redux';
-import InitialState from './components/KegList';
+import reducer from './reducers/keg-control-reducer';
+import InitialState from './components/InitialState';
 
 const store = createStore(
-  // InitialState,
-  reducer
+
+  reducer,
+  InitialState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() 
   );
 
 ReactDOM.render(
@@ -20,4 +22,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+serviceWorker.register();
 
