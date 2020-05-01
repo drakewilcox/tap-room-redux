@@ -6,6 +6,7 @@ describe('kegControlReducer', () => {
     name: 'Pilsner',
     brewery: 'Pfriem',
     abv: '5.0%',
+    origin: 'OR',
     pintPrice: 5,
     kegLevel: 124,
     id: 1
@@ -16,12 +17,13 @@ describe('kegControlReducer', () => {
     });
   
   test ('Should successfully add new keg data to kegList', () => {
-    const {name, brewery, abv, pintPrice, kegLevel, id } = kegData;
+    const {name, brewery, abv, origin, pintPrice, kegLevel, id } = kegData;
     action = {
       type: 'ADD_KEG',
       name: name,
       brewery: brewery,
       abv: abv, 
+      origin: origin, 
       pintPrice: pintPrice,
       kegLevel: kegLevel, 
       id: id
@@ -31,6 +33,7 @@ describe('kegControlReducer', () => {
         name: name,
         brewery: brewery,
         abv: abv, 
+        origin: origin,
         pintPrice: pintPrice,
         kegLevel: kegLevel, 
         id: id
