@@ -6,8 +6,12 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import reducer from './reducers/keg-control-reducer';
 import { Provider } from 'react-redux';
+import InitialState from './components/KegList';
 
-const store = createStore(reducer);
+const store = createStore(
+  // InitialState,
+  reducer
+  );
 
 ReactDOM.render(
   <Provider store={store}>
