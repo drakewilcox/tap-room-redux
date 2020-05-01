@@ -3,13 +3,20 @@ import kegControlReducer from '../../reducers/keg-control-reducer';
 describe('kegControlReducer', () => {
   let action; 
   const kegData = {
-    name: 'Pilsner',
+    1: {name: 'Pilsner',
     brewery: 'Pfriem',
     abv: '5.0%',
     origin: 'OR',
     pintPrice: 5,
     kegLevel: 124,
-    id: 1
+    id: 1 },
+    2: {name: 'City of Dreams',
+    brewery: 'Fort George',
+    abv: '6.9%',
+    origin: 'OR',
+    pintPrice: 6,
+    kegLevel: 124,
+    id: 2 },
   };
 
   test ('Should return default state if there is no action passed into the reducer', () => {
@@ -40,5 +47,22 @@ describe('kegControlReducer', () => {
       }
     });
   });
+
+  test('Should successfully delete a keg', () => {
+    action ={
+      type: 'DELETE_KEG',
+      id:1
+    };
+    expect(kegControlReducer(currentState, action)).toEqual({
+      2: {name: 'City of Dreams',
+      brewery: 'Fort George',
+      abv: '6.9%',
+      origin: 'OR',
+      pintPrice: 6,
+      kegLevel: 124,
+      id: 2 }
+    });
+  });
+
   
 });
