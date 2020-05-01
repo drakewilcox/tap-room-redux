@@ -95,10 +95,10 @@ class KegControl extends React.Component {
           </table>
         </main>
         </React.Fragment>,
-        // sideBar: <Beer
-        //   beer = {this.props.selectedKeg}
-        //   onNewSalesReport = {this.handleSalesReport}
-        //   />,
+        sideBar: <Beer
+          beer = {this.props.selectedKeg}
+          onNewSalesReport = {this.handleSalesReport}
+          />,
         footer: <NewKegForm 
         onNewKegFormCreation = {this.handleAddingNewKegToList}/>
       } 
@@ -140,7 +140,8 @@ KegControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    kegList: state
+    kegList: state.kegList,
+    selectedKeg: state.selectedKeg
   }
 }
 KegControl = connect(mapStateToProps)(KegControl)
