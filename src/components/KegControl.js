@@ -2,7 +2,7 @@ import React from 'react';
 import NewKegForm from './KegFormControl/NewKegForm';
 import MainHeader from './MainHeader';
 import Beer from './KegDetails/Beer';
-import KegList from './KegList.js';
+// import KegList from './KegList.js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -13,8 +13,8 @@ class KegControl extends React.Component {
     this.state = {
       showHomePage: true,
 
-      kegList: KegList, 
-      currentSelectedKeg: {}
+      // kegList: KegList, 
+      selectedKeg: {}
     }
   }
 
@@ -35,7 +35,7 @@ class KegControl extends React.Component {
   handleChangingSelectedKeg = (id) => {
     const selectedKeg = this.props.kegList.filter(keg => keg.id === id)[0];
     this.setState({
-      currentSelectedKeg: selectedKeg, 
+      selectedKeg: selectedKeg, 
       showHomePage: true
     })
   }
@@ -53,7 +53,7 @@ class KegControl extends React.Component {
   }
 
   renderTableData() {
-    const sortedKegs = this.state.kegList.sort(function(a, b) {
+    const sortedKegs = this.props.kegList.sort(function(a, b) {
       var textA = a.name.toUpperCase();
       var textB = b.name.toUpperCase();
       return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
@@ -96,7 +96,7 @@ class KegControl extends React.Component {
         </main>
         </React.Fragment>,
         sideBar: <Beer
-          beer = {this.state.currentSelectedKeg}
+          beer = {this.props.selectedKeg}
           onNewSalesReport = {this.handleSalesReport}
           />,
         footer: <NewKegForm 
@@ -106,7 +106,7 @@ class KegControl extends React.Component {
       return {
         header: <MainHeader/>,
         body: <Beer
-        beer={this.state.currentSelectedKeg}/>
+        beer={this.state.selectedKeg}/>
       }
     }
   };
