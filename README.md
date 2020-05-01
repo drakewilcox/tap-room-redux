@@ -1,6 +1,6 @@
-# Dracobian's Draughts
+# Dracobian's Draughts With Redux
 
-#### Friday Project for React Fundamentals, April, 24, 2020
+#### Friday Project for React Fundamentals and using Redux, May, 1, 2020
 
 #### _**Drake Wilcox**_
 
