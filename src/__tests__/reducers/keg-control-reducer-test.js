@@ -2,7 +2,7 @@ import kegControlReducer from '../../reducers/keg-control-reducer';
 
 describe('kegControlReducer', () => {
   let action; 
-  const kegData = {
+  const currentState = {
     1: {name: 'Pilsner',
     brewery: 'Pfriem',
     abv: '5.0%',
@@ -24,7 +24,7 @@ describe('kegControlReducer', () => {
     });
   
   test ('Should successfully add new keg data to kegList', () => {
-    const {name, brewery, abv, origin, pintPrice, kegLevel, id } = kegData;
+    const {name, brewery, abv, origin, pintPrice, kegLevel, id } = currentState;
     action = {
       type: 'ADD_KEG',
       name: name,
