@@ -53,7 +53,7 @@ class KegControl extends React.Component {
   }
 
   renderTableData() {
-    const sortedKegs = this.props.kegList.sort(function(a, b) {
+    const sortedKegs = Object.values(this.props.kegList).sort(function(a, b) {
       var textA = a.name.toUpperCase();
       var textB = b.name.toUpperCase();
       return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
@@ -95,10 +95,10 @@ class KegControl extends React.Component {
           </table>
         </main>
         </React.Fragment>,
-        sideBar: <Beer
-          beer = {this.props.selectedKeg}
-          onNewSalesReport = {this.handleSalesReport}
-          />,
+        // sideBar: <Beer
+        //   beer = {this.props.selectedKeg}
+        //   onNewSalesReport = {this.handleSalesReport}
+        //   />,
         footer: <NewKegForm 
         onNewKegFormCreation = {this.handleAddingNewKegToList}/>
       } 
@@ -106,7 +106,7 @@ class KegControl extends React.Component {
       return {
         header: <MainHeader/>,
         body: <Beer
-        beer={this.state.selectedKeg}/>
+        beer={this.props.selectedKeg}/>
       }
     }
   };
