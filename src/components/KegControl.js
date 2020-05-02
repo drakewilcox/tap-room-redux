@@ -14,7 +14,7 @@ class KegControl extends React.Component {
       showHomePage: true,
 
       // kegList: KegList, 
-      selectedKeg: {}
+      // selectedKeg: {}
     }
   }
 
