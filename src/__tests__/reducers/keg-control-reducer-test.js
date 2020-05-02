@@ -64,5 +64,30 @@ describe('kegControlReducer', () => {
     });
   });
 
-  
+  test('Should successfully update kegLevel of a single keg', () => {
+    const action = {
+      type: 'SALES_REPORT',
+      id: 1, 
+      amtSold: 10
+    };
+
+    const updatedState = {
+      [1]: {name: 'Pilsner',
+      brewery: 'Pfriem',
+      abv: '5.0%',
+      origin: 'OR',
+      pintPrice: 5,
+      kegLevel: 114,
+      id: 1 },
+      [2]: {name: 'City of Dreams',
+      brewery: 'Fort George',
+      abv: '6.9%',
+      origin: 'OR',
+      pintPrice: 6,
+      kegLevel: 124,
+      id: 2 }
+
+    };
+    expect(kegControlReducer(currentState, action)).toEqual(updatedState);
+  });
 });
