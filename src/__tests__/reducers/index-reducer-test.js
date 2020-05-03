@@ -1,6 +1,6 @@
 import rootReducer from '../../reducers/index';
 import formVisibleReducer from '../../reducers/form-visible-reducer';
-import ticketListReducer from '../../reducers/keg-control-reducer';
+import kegControlReducer from '../../reducers/keg-control-reducer';
 import { createStore } from 'redux';
 // import * as c from './../../actions/ActionTypes';
 
@@ -14,6 +14,35 @@ describe("rootReducer", () => {
       formVisibleOnPage: false
     });
   });
+  test('Check that initial state of ticketListReducer matches root reducer', () => {
+    expect(store.getState().masterKegList).toEqual(kegControlReducer(undefined, { type: null }));
+  });
 
+  test('Check that initial state of formVisibleReducer matches root reducer', () => {
+    expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, { type: null }));
+  });
+
+  test('Check that initial state of kegControlReducer matches root reducer', () => {
+    const action = {
+      type: 'ADD_KEG',
+      name: 'Pilsner',
+      brewery: 'Pfriem',
+      abv: '5.0%',
+      origin: 'OR',
+      pintPrice: 5,
+      kegLevel: 124,
+      id: 1 
+    }
+    store.dispatch(action);
+    expect(store.getState().masterKegList).toEqual(kegControlReducer(undefined, action));
+  });
+
+  test('Check that initial state of formVisibleReducer matches root reducer', () => {
+    const action = {
+      type: 'TOGGLE_FORM'
+    }
+    store.dispatch(action);
+    expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));
+  });
 
 })
