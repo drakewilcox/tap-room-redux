@@ -1,4 +1,5 @@
 import kegControlReducer from '../../reducers/keg-control-reducer';
+import * as c from './../../actions/ActionTypes';
 
 describe('kegControlReducer', () => {
   let action; 
@@ -26,7 +27,7 @@ describe('kegControlReducer', () => {
   test ('Should successfully add new keg data to kegList', () => {
     const {name, brewery, abv, origin, pintPrice, kegLevel, id } = currentState;
     action = {
-      type: 'ADD_KEG',
+      type: c.ADD_KEG,
       name: name,
       brewery: brewery,
       abv: abv, 
@@ -50,7 +51,7 @@ describe('kegControlReducer', () => {
 
   test('Should successfully delete a keg', () => {
     action ={
-      type: 'DELETE_KEG',
+      type: c.DELETE_KEG,
       id:1
     };
     expect(kegControlReducer(currentState, action)).toEqual({
@@ -66,7 +67,7 @@ describe('kegControlReducer', () => {
 
   test('Should successfully update kegLevel of a single keg', () => {
     const action = {
-      type: 'SALES_REPORT',
+      type: c.SALES_REPORT,
       id: 1, 
       amtSold: 10
     };

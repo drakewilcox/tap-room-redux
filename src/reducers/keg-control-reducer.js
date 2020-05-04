@@ -1,3 +1,4 @@
+
 export default (state = {}, action) => {
   const { name, brewery, abv, origin, pintPrice, kegLevel, id, amtSold} = action;
   switch (action.type) {
