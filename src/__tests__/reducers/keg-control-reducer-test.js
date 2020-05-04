@@ -91,4 +91,27 @@ describe('kegControlReducer', () => {
     };
     expect(kegControlReducer(currentState, action)).toEqual(updatedState);
   });
+
+  test('Should successfully display selected keg', () => {
+    const action = {
+      type: 'KEG_DETAILS',
+      name: 'City of Dreams',
+      brewery: 'Fort George',
+      abv: '6.9%',
+      origin: 'OR',
+      pintPrice: 6,
+      kegLevel: 124,
+      id: 2
+    }
+
+    expect(kegControlReducer({}, action)).toEqual({
+      name: 'City of Dreams',
+      brewery: 'Fort George',
+      abv: '6.9%',
+      origin: 'OR',
+      pintPrice: 6,
+      kegLevel: 124,
+      id: 2 
+    })
+  })
 });

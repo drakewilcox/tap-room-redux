@@ -23,6 +23,18 @@ export default (state = {}, action) => {
    
       const updatedState = {...state, [id]: { ...state[id], kegLevel: newKegLevel }};
       return updatedState;
+
+    case 'KEG_DETAILS':
+      const detailState = {
+        name, 
+        brewery, 
+        abv, 
+        origin, 
+        pintPrice, 
+        kegLevel, 
+        id
+      }
+      return detailState;
     default:
       return state;
   }
