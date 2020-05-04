@@ -26,5 +26,12 @@ describe('ticket control actions', () => {
     });
   });
 
+  it('deleteTicket should create DELETE_TICKET action', () => {
+    expect(actions.deleteTicket(keg.id)).toEqual({
+      type: c.DELETE_TICKET,
+      id: 1
+    });
+  });
+
 
 })
