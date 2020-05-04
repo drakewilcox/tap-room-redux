@@ -27,9 +27,15 @@ describe('ticket control actions', () => {
   });
 
   it('deleteTicket should create DELETE_TICKET action', () => {
-    expect(actions.deleteTicket(keg.id)).toEqual({
-      type: c.DELETE_TICKET,
+    expect(actions.deleteKeg(keg.id)).toEqual({
+      type: c.DELETE_KEG,
       id: 1
+    });
+  });
+
+  it('toggleForm should create TOGGLE_FORM action', () => {
+    expect(actions.toggleForm()).toEqual({
+      type: c.TOGGLE_FORM
     });
   });
 
