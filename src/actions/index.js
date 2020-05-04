@@ -22,3 +22,17 @@ export const addKeg = (keg) => {
     id: id
   }
 }
+
+export const kegDetails = (keg) => {
+  const { name, brewery, abv, origin, pintPrice, kegLevel, id } = keg; 
+  return {
+    type: c.KEG_DETAILS, 
+    name: name, 
+    brewery: brewery,
+    abv: abv,
+    origin: origin, 
+    pintPrice: pintPrice, 
+    kegLevel: kegLevel, 
+    id: id
+  }
+}

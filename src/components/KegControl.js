@@ -5,13 +5,27 @@ import Beer from './KegDetails/Beer';
 // import KegList from './KegList.js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import * as c from './../actions';
 
-function KegControl(props) {
+class KegControl extends React.Component {
 
-  const { dispatch } = props;
+  constructor(props) {
+    super(props);
+    this.state = {
+      showHomePage: true,
+
+      // kegList: KegList, 
+      // selectedKeg: {}
+    }
+  }
+
 
   handleAddingNewKegToList = (newKeg) => {
-   dispatch(c.addKeg(newKeg));
+    const { dispatch } = this.props;
+    const action = c.addKeg(newKeg);
+    dispatch(action);
+    // this.setState({kegList: newKegList});
+    this.setState({showHomePage: true});
   }
 
   // handleChangingSelectedKeg = (id) => {

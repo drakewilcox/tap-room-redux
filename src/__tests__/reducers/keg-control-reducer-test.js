@@ -94,7 +94,7 @@ describe('kegControlReducer', () => {
 
   test('Should successfully display selected keg', () => {
     const action = {
-      type: 'KEG_DETAILS',
+      type: c.KEG_DETAILS,
       name: 'City of Dreams',
       brewery: 'Fort George',
       abv: '6.9%',
