@@ -23,10 +23,10 @@ export const addKeg = (keg) => {
   }
 }
 
-export const kegDetails = (keg) => {
+export const selectedKeg = (keg) => {
   const { name, brewery, abv, origin, pintPrice, kegLevel, id } = keg; 
   return {
-    type: c.KEG_DETAILS, 
+    type: c.SELECTED_KEG, 
     name: name, 
     brewery: brewery,
     abv: abv,
@@ -36,3 +36,22 @@ export const kegDetails = (keg) => {
     id: id
   }
 }
+
+// export const kegDetails = (keg) => {
+//   const { name, brewery, abv, origin, pintPrice, kegLevel, id } = keg; 
+//   return {
+//     type: c.KEG_DETAILS, 
+//     name: name, 
+//     brewery: brewery,
+//     abv: abv,
+//     origin: origin, 
+//     pintPrice: pintPrice, 
+//     kegLevel: kegLevel, 
+//     id: id
+//   }
+// }
+
+export const salesReport = id => ({
+  type: c.SALES_REPORT,
+  id: id
+})

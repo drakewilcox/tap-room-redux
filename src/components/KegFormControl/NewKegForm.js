@@ -3,7 +3,6 @@ import { v4 } from 'uuid';
 import PropTypes from "prop-types";
 
 function NewKegForm(props) {
-
   function handleNewKegFormSubmission(event) {
     event.preventDefault();
     props.onNewKegFormCreation({
@@ -14,14 +13,13 @@ function NewKegForm(props) {
       pintPrice: event.target.pintPrice.value,
       kegLevel: 124,
       id: v4()
-    })
+    });
   }
-
   return (
     <React.Fragment>
       <footer>
         <h3>Add A New Keg:</h3>
-        <form onSubmit={ handleNewKegFormSubmission }>
+        <form onSubmit={handleNewKegFormSubmission}>
           <input
             type='text'
             name='name'
@@ -42,12 +40,16 @@ function NewKegForm(props) {
             type='text'
             name='pintPrice'
             placeholder='Pint Price'/>
-          <button type='submit'>ADD NEW KEG</button>        
+          <button type='submit'>ADD NEW KEG</button>  
         </form>
+        
       </footer>
     </React.Fragment>
-  );
-}
+        
+        );
+      }
+     
+  
 
 NewKegForm.propTypes = {
   onNewKegFormCreation: PropTypes.func
