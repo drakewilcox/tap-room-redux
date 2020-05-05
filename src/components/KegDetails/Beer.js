@@ -3,20 +3,26 @@ import PropTypes from 'prop-types';
 
 const Beer = (props) => {
 
-  function handleSalesReport(event) {
+  function onNewSalesReport(event) {
     event.preventDefault();
-    let newLevel = props.beer.kegLevel - event.target.pintsSold.value;
-    if(props.beer.kegLevel === "Sold Out") {
-      newLevel = "Sold Out";
-    }
-    else if(newLevel <= 0) {
-      newLevel = "Sold Out";
-    }
-    props.onNewSalesReport({
-      pintsSold: newLevel,
-      id: props.beer.id 
-    })
+    // let amountSold = event.target.pintsSold.value;
+    props.onNewSalesReport(props.id);
   }
+
+  // function handleSalesReport(event) {
+  //   event.preventDefault();
+  //   let newLevel = props.kegLevel - event.target.pintsSold.value;
+  //   if(props.kegLevel === "Sold Out") {
+  //     newLevel = "Sold Out";
+  //   }
+  //   else if(newLevel <= 0) {
+  //     newLevel = "Sold Out";
+  //   }
+  //   props.onNewSalesReport({
+  //     pintsSold: newLevel,
+  //     id: props.beer.id 
+  //   })
+  // }
  
   return (
   <React.Fragment>
@@ -31,7 +37,7 @@ const Beer = (props) => {
       <p><strong>Pint Price:</strong> {props.beer.pintPrice}</p>
       <p><strong>KegLevel:</strong> {props.beer.kegLevel}</p>
     </div>
-    <form onSubmit={ handleSalesReport }>
+    <form onSubmit={ onNewSalesReport }>
       <input
         type='text'
         name='pintsSold'

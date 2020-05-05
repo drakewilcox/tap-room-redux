@@ -23,7 +23,10 @@ const handleChangingSelectedKeg = (id) => {
 }
 
 const handleSalesReport = (id) => {
-    dispatch(c.salesReport(id));
+  
+  const soldKeg = props.kegList[id];
+  dispatch(c.salesReport(soldKeg));
+    // dispatch(c.selectedKeg(kegInfo));
     };
 
   return (
