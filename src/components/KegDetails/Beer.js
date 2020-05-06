@@ -5,25 +5,16 @@ const Beer = (props) => {
 
   function onNewSalesReport(event) {
     event.preventDefault();
-    // let amountSold = event.target.pintsSold.value;
-    props.onNewSalesReport(props.id);
+  
+    props.onNewSalesReport({
+      amtSold: event.target.pintsSold.value, 
+      id: props.beer.id
+    })
+  }
+  if (props.beer.kegLevel <= 0) {
+    props.beer.kegLevel = 'sold out';
   }
 
-  // function handleSalesReport(event) {
-  //   event.preventDefault();
-  //   let newLevel = props.kegLevel - event.target.pintsSold.value;
-  //   if(props.kegLevel === "Sold Out") {
-  //     newLevel = "Sold Out";
-  //   }
-  //   else if(newLevel <= 0) {
-  //     newLevel = "Sold Out";
-  //   }
-  //   props.onNewSalesReport({
-  //     pintsSold: newLevel,
-  //     id: props.beer.id 
-  //   })
-  // }
- 
   return (
   <React.Fragment>
     <div>
@@ -46,7 +37,7 @@ const Beer = (props) => {
     </form>
   </React.Fragment>
   )
-}
+ }
 
 Beer.propTypes = {
   beer: PropTypes.object,

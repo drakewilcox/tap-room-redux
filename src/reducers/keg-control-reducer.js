@@ -20,8 +20,7 @@ export default (state = {}, action) => {
       delete newState[id];
       return newState;
     case c.SALES_REPORT:
-      const newKegLevel = (state[id].kegLevel -= amtSold)
-   
+      let newKegLevel = (state[id].kegLevel -= amtSold)
       const updatedState = {...state, [id]: { ...state[id], kegLevel: newKegLevel }};
       return updatedState;
 
