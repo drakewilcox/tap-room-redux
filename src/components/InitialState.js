@@ -11,17 +11,17 @@ const id8 = v4();
 const id9 = v4();
 
 const InitialState = {
-// selectedKeg: {
+selectedKeg: {
    
-//     name: "Briney Melon Gose",
-//     brewery: "AndersonValley",
-//     abv: "4.2%",
-//     origin: "CA",
-//     pintPrice: 6, 
-//     kegLevel: 124,
-//     id: id1
+    name: "Briney Melon Gose",
+    brewery: "AndersonValley",
+    abv: "4.2%",
+    origin: "CA",
+    pintPrice: 6, 
+    kegLevel: 124,
+    id: id1
     
-//   },
+  },
   kegList: {
     [id1]: {
       name: "Briney Melon Gose",
